@@ -1,5 +1,13 @@
+import traceback
+
 from django.http import HttpResponse
+from django.shortcuts import render_to_response
 
 
 def index(request):
-    return HttpResponse('0')
+    try:
+        print(request)
+        return render_to_response("login.html")
+    except:
+        print(traceback.format_exc())
+        return HttpResponse('500')
